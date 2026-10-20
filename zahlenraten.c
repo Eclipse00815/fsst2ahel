@@ -5,7 +5,7 @@ int main()
     float zahl;
     float referenz = 30;
 
-    printf("Gib hier eine Zahl nach denen Wuenschen an: \n");
+    printf("Gib hier eine Zahl nach deinen Wuenschen an: \n");
     scanf("%f", &zahl);
 
     if (zahl > referenz)
