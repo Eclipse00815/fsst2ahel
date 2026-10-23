@@ -13,7 +13,7 @@ int main()
     printf("Oh, one more thing. There are only a limited amount of gender and races available.\n");
     printf("For gender, we have male, female and non-binary for gender.\n");
     printf("For race, we got human, werewolf, vampire and elf.\n");
-    printf("For class, we got warrior, hunter, mage, witch and shaman.\n");
+    printf("For class, we got warrior, hunter, mage, witch, shaman and assassin.\n");
     printf("\n");
 
     char gender[50];
@@ -54,9 +54,9 @@ int main()
     printf("Enter your class: ");
     scanf("%s", class);
 
-    while (strcasecmp(class, "warrior") != 0 && strcasecmp(class, "hunter") != 0 && strcasecmp(class, "mage") != 0 && strcasecmp(class, "witch") != 0 && strcasecmp(class, "shaman") != 0)
+    while (strcasecmp(class, "warrior") != 0 && strcasecmp(class, "hunter") != 0 && strcasecmp(class, "mage") != 0 && strcasecmp(class, "witch") != 0 && strcasecmp(class, "shaman") != 0 && strcasecmp(class, "assassin") != 0)
     {
-        printf("... excuse me? Please try again and use a correct class. \n");
+        printf("... excuse me? Please try again and use a correct race. \n");
         printf("Enter your class: ");
         scanf("%s", class);
     }
@@ -69,8 +69,6 @@ int main()
     printf("Race: You are a %s! \n", race);
     printf("Class: You are a %s! \n", class);
 
-    printf("\n");
-
     printf("Now, we have your data and you have your Users profile.\n");
     printf("Let me first give you a few Quick Tutorials. Listen closely, will you?\n");
     printf("\n");
@@ -78,20 +76,92 @@ int main()
     printf("In this game, you will have to fight, gather resources, interact with NPCs and survive.\n");
     printf("You have so-called 'stats', and all of them change how you fight.\n");
     printf("Every monster drops something that you can use for crafting, trading or sell for money.\n");
-    printf("For every drop, you see an overview to how the item is used best, the selling price and the rarity.\n");
+    printf("For every drop, you see an overview to how the iem is used best, the selling price and the rarity.\n");
     printf("The mobs themselves also have specific rarities and races. For example, the wolf:\n");
     printf("Wolf: Common, Animal.\n");
-    printf("All stats start with the basic points of 5.\n");
+    printf("And the drops: \n");
+    printf("Wolf Pelt, common. Selling item. Price: 5 Bronze.\n");
+    printf("All stats start with the basic points of 5. Tho, some classes or races might have different stats.\n");
     printf("So much for that... Let us update your User profile!\n");
-    printf("\n ===== Tutorial: Overview ---END--- ===== \n");
     printf("\n");
 
     int attack = 5;
     int defense = 5;
+    int health = 5;
     int speed = 5;
     int stealth = 5;
     int stamina = 5;
-    int intelligence = 5;
+
+    if (strcasecmp(race, "Werewolf") == 0)
+    {
+        attack += 2;
+        defense += 1;
+        speed += 1;
+        stealth -= 1;
+        stamina += 1;
+    }
+
+    if (strcasecmp(race, "Vampire") == 0)
+    {
+        attack += 1;
+        health += 1;
+        speed += 1;
+        stealth += 2;
+        stamina += 1;
+    }
+
+    if (strcasecmp(race, "Elf") == 0)
+    {
+        speed += 2;
+        stealth += 2;
+        stamina += 2;
+    }
+
+    
+    if (strcasecmp(class, "Warrior") == 0)
+    {
+        attack += 1;
+        defense += 2;
+        speed -= 1;
+        stealth -= 1;
+        stamina -= 1;
+    }
+
+    if (strcasecmp(class, "Hunter") == 0)
+    {
+        defense -= 1;
+        speed += 1;
+        stealth += 1;
+        stamina += 1;
+    }
+
+    if (strcasecmp(class, "Mage") == 0)
+    {
+        attack += 1;
+        defense -= 1;
+    }
+
+    if (strcasecmp(class, "Witch") == 0)
+    {
+        attack += 1;
+        defense -= 1;
+    }
+
+    if (strcasecmp(class, "Shaman") == 0)
+    {
+        attack += 1;
+        health += 1;
+        stamina += 1;
+    }
+
+    if (strcasecmp(class, "Assassin") == 0)
+    {
+        attack += 1;
+        defense -= 1;
+        speed += 2;
+        stealth += 2;
+        stamina += 2;
+    }
 
     printf("\n ----- Users Profile ----- \n");
     printf("Gender: You are a %s player! \n", gender);
@@ -99,12 +169,12 @@ int main()
     printf("Name: Your name is %s! \n", name);
     printf("Race: You are a %s! \n", race);
     printf("Class: You are a %s! \n", class);
-    printf("Attack: You have %d points in attack. \n", attack);
-    printf("Defense: You have %d points in defense. \n", defense);
-    printf("Speed: You have %d points in speed. \n", speed);
-    printf("Stealth: You have %d points in stealth. \n", stealth);
-    printf("Stamina: You have %d points in stamina. \n", stamina);
-    printf("Intelligence: You have %d points in intelligence. \n", intelligence);
+    printf("Attack: %d points. \n", attack);
+    printf("Defense: %d points. \n", defense);
+    printf("Health: %d points. \n", health);
+    printf("Speed: %d points. \n", speed);
+    printf("Stealth: %d points. \n", stealth);
+    printf("Stamina: %d points. \n", stamina);
 
     return 0;
 }
