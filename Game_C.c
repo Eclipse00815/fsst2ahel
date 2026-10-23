@@ -101,7 +101,7 @@ int main()
         stamina += 1;
     }
 
-    if (strcasecmp(race, "Vampire") == 0)
+    else if (strcasecmp(race, "Vampire") == 0)
     {
         attack += 1;
         health += 1;
@@ -110,7 +110,7 @@ int main()
         stamina += 1;
     }
 
-    if (strcasecmp(race, "Elf") == 0)
+    else if (strcasecmp(race, "Elf") == 0)
     {
         speed += 2;
         stealth += 2;
@@ -127,7 +127,7 @@ int main()
         stamina -= 1;
     }
 
-    if (strcasecmp(class, "Hunter") == 0)
+    else if (strcasecmp(class, "Hunter") == 0)
     {
         defense -= 1;
         speed += 1;
@@ -135,26 +135,26 @@ int main()
         stamina += 1;
     }
 
-    if (strcasecmp(class, "Mage") == 0)
+    else if (strcasecmp(class, "Mage") == 0)
     {
         attack += 1;
         defense -= 1;
     }
 
-    if (strcasecmp(class, "Witch") == 0)
+    else if (strcasecmp(class, "Witch") == 0)
     {
         attack += 1;
         defense -= 1;
     }
 
-    if (strcasecmp(class, "Shaman") == 0)
+    else if (strcasecmp(class, "Shaman") == 0)
     {
         attack += 1;
         health += 1;
         stamina += 1;
     }
 
-    if (strcasecmp(class, "Assassin") == 0)
+    else if (strcasecmp(class, "Assassin") == 0)
     {
         attack += 1;
         defense -= 1;
