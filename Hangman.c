@@ -3,7 +3,15 @@
 int main()
 {
     const char secret[] = "REDBULL4EVER"; // Array ist IMMER eine Adresse!
+    const char len = sizeof(secret -1);
+    char guessed[len];
     char guess;
+    int matches = 0;
+
+    for (int i = 0; i < len; i++)
+    {
+        guessed[i] = '_';
+    }
 
     //Character Arrays: Einziges Array, wo der Computer weiß, wo das Array zu Ende ist.
     //Array "1234" hat fünf Zeichen - "1234\0" (Nullterminator)
@@ -16,16 +24,23 @@ int main()
         return 1;
     }
 
-    int matches = 0;
-    for (int i = 0; i < (sizeof(secret) / sizeof(char)) - 1; i++)
+    for (int i = 0; i < len; i++)
     {
         if (secret[i] == guess)
         {
             matches ++;
+            guessed[i] = guess;
         }
     }
 
+    for (int i = 0; i < len; i++)
+    {
+        printf("%c ", guessed[i]);
+    }
+
     printf("Matches: %d\n", matches);
+
+    return 0;
 
     /*
     if (guess == secret[0])
@@ -38,5 +53,4 @@ int main()
         printf("That is wrong.");
     }
     */
-    return 0;
 }
