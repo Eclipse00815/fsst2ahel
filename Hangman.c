@@ -3,7 +3,15 @@
 int main()
 {
     const char secret[] = "REDBULL4EVER"; // Array ist IMMER eine Adresse!
-    char guess;
+    const int len = sizeof(secret) - 1;
+    char guessed[len];
+    const char guess;
+    int matches = 0;
+
+    for (int i = 0; i < len; i++)
+    {
+        guessed[i] = '_';
+    }
 
     //Character Arrays: Einziges Array, wo der Computer weiß, wo das Array zu Ende ist.
     //Array "1234" hat fünf Zeichen - "1234\0" (Nullterminator)
@@ -12,10 +20,32 @@ int main()
     printf("Choose a character for the guess: \n");
     if (scanf(" %c", &guess) != 1)  //& ist nötig, damit die Funktion überhaupt etwas zurückgibt. scanf hat einen eigenen Ausgabewert (int)
     {
-        printf("Ungültige Eingabe.");
+        printf("Ungültige Eingabe.\n");
         return 1;
     }
 
+    for (int i = 0; i < len; i++)
+    {
+        printf("%c ", guessed[i]);
+    }
+    
+int matchcount(const char secret[], const char guess)
+    {
+        int matches = 0;
+        for (int i = 0; i < sizeof(secret) - 1; i++)
+        {
+            if (secret[i] == guess)
+            {
+                matches ++;
+                // guessed[i] = guess;
+            }
+        }
+        return matches;
+    }
+
+    printf("Matches: %d\n", matches);
+
+        /*
     int matches = 0;
     for (int i = 0; i < (sizeof(secret) / sizeof(char)) - 1; i++)
     {
@@ -24,10 +54,7 @@ int main()
             matches ++;
         }
     }
-
-    printf("Matches: %d\n", matches);
-
-    /*
+    
     if (guess == secret[0])
     {
         printf("You got it right! The secret was %c.", secret[0]);
