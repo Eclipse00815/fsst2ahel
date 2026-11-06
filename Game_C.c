@@ -81,7 +81,7 @@ int main()
     printf("Wolf: Common, Animal.\n");
     printf("And the drops: \n");
     printf("Wolf Pelt, common. Selling item. Price: 5 Bronze.\n");
-    printf("All stats start with the basic points of 5. Tho, some classes or races might have different stats.\n");
+    printf("All stats start with the basic points of 5. Tho, depending on your race and class, you have different starting stats.\n");
     printf("So much for that... Let us update your User profile!\n");
     printf("\n");
 
@@ -175,6 +175,13 @@ int main()
     printf("Speed: %d points. \n", speed);
     printf("Stealth: %d points. \n", stealth);
     printf("Stamina: %d points. \n", stamina);
+
+    printf("Narrator: 'Aaah, there it is! Why, your stats are quite impressive, I must say! You will surely be quite an outstanding adventurer.'");
+    printf("Narrator: 'Well. You should probably wake up now.'");
+
+    printf("=========  STORY STARTS NOW  =========");
+
+    printf("Your eyes snap open, and you are greeted by a blindingly bright light from overhead.");
 
     return 0;
 }
