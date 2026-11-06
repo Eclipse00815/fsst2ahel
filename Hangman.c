@@ -12,7 +12,7 @@ int strcmp(const char word1[], char word2[]) {
 int main()
 {
     const char secret[] = "REDBULL4EVER"; // Array ist IMMER eine Adresse!
-    const int len = sizeof(secret) -1;
+    const int len = sizeof(secret) - 1;
     char guessed[len];
     char guess;
     int matches = 0;
@@ -31,6 +31,35 @@ int main()
         if (scanf(" %c", &guess) != 1) {
             printf("Ungültige Eingabe.\n");
             return 1;
+        }
+    }
+    printf("Choose a character for the guess: \n");
+    if (scanf(" %c", &guess) != 1)  //& ist nötig, damit die Funktion überhaupt etwas zurückgibt. scanf hat einen eigenen Ausgabewert (int)
+    {
+        printf("Ungültige Eingabe.\n");
+        return 1;
+    }
+
+    for (int i = 0; i < len; i++)
+    {
+        printf("%c ", guessed[i]);
+    }
+    
+
+    printf("Matches: %d\n", matches);
+
+
+    return 0;
+
+
+    /*
+    int matches = 0;
+    for (int i = 0; i < (sizeof(secret) / sizeof(char)) - 1; i++)
+    {
+        if (secret[i] == guess)
+        {
+            matches ++;
+            guessed[i] = guess;
         }
         //& ist nötig, damit die Funktion überhaupt etwas zurückgibt. scanf hat einen eigenen Ausgabewert (int)
 
@@ -53,8 +82,19 @@ int main()
         printf("Matches: %d\n", matches);
     }
 
-    return 0;
-
+        int matchcount(const char secret[], const char guess)
+    {
+        int matches = 0;
+        for (int i = 0; i < sizeof(secret) - 1; i++)
+        {
+            if (secret[i] == guess)
+            {
+                matches ++;
+                // guessed[i] = guess;
+            }
+        }
+        return matches;
+    }
 
     //# 
 
